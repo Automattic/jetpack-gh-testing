@@ -74,7 +74,7 @@ jobs:
 
       - name: Notify failure in Slack
         uses: slackapi/slack-github-action@v1.15.0
-        if: ! success()
+        if: ${{ ! success() }}
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
           slack-message: |

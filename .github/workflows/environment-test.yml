@@ -1,0 +1,21 @@
+name: Environment test
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  test:
+    name: Test job
+    runs-on: ubuntu-latest
+    environment:
+      name: test
+      url: https://github.com/${{ github.repository }}/releases/tag/${{ github.ref }}
+
+    steps:
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-nunmber: 1
+          body: |
+            Workflow ran for tag ${{ github.ref }}. The secret was "${{ secrets.A_SECRET }}".

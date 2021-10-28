@@ -40,9 +40,9 @@ jobs:
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
           slack-message: |
-            Tag [${{ steps.vars.outputs.tag }}](https://github.com/${{ github.repository }}/releases/tag/${{ steps.vars.outputs.tag }}) of ${{ github.repository }} will be deployed in ${{ steps.vars.outputs.timer }} minutes!
+            Tag <https://github.com/${{ github.repository }}/releases/tag/${{ steps.vars.outputs.tag }}|${{ steps.vars.outputs.tag }}> of ${{ github.repository }} will be deployed in ${{ steps.vars.outputs.timer }} minutes!
 
-            [Review this deployment](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Review this deployment>
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
 
@@ -68,7 +68,7 @@ jobs:
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
           slack-message: |
-            Tag [${{ needs.notify.outputs.tag }}](https://github.com/${{ github.repository }}/releases/tag/${{ needs.notify.outputs.tag }}) of ${{ github.repository }} was deployed! :tada:
+            Tag <https://github.com/${{ github.repository }}/releases/tag/${{ needs.notify.outputs.tag }}|${{ needs.notify.outputs.tag }}> of ${{ github.repository }} was deployed! :tada:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
 
@@ -78,8 +78,8 @@ jobs:
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
           slack-message: |
-            Tag [${{ needs.notify.outputs.tag }}](https://github.com/${{ github.repository }}/releases/tag/${{ needs.notify.outputs.tag }}) of ${{ github.repository }} deployment failed! :gummy-sad:
+            Tag <https://github.com/${{ github.repository }}/releases/tag/${{ needs.notify.outputs.tag }}|${{ needs.notify.outputs.tag }}> of ${{ github.repository }} deployment failed! :gummy-sad:
 
-            [Check the job output](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Check the job output>
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}

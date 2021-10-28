@@ -26,7 +26,7 @@ jobs:
 
             Approvers, [go review it!](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
         env:
-          SLACK_BOT_TOKEN: ${{ SLACK_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
 
   test:
     name: Test job
@@ -52,7 +52,7 @@ jobs:
           slack-message: |
             Tag [${{ needs.notify.outputs.tag }}](https://github.com/${{ github.repository }}/releases/tag/${{ needs.notify.outputs.tag }}) of ${{ github.repository }} was deployed! :tada:
         env:
-          SLACK_BOT_TOKEN: ${{ SLACK_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
 
       - name: Notify failure in Slack
         uses: slackapi/slack-github-action@v1.15.0
@@ -64,4 +64,4 @@ jobs:
 
             [Check the job output](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
         env:
-          SLACK_BOT_TOKEN: ${{ SLACK_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}

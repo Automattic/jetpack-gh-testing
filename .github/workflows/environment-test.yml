@@ -16,6 +16,6 @@ jobs:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
-          issue-nunmber: 1
+          issue-number: 1
           body: |
             Workflow ran for tag ${{ github.ref }}. The secret was "${{ secrets.A_SECRET }}".

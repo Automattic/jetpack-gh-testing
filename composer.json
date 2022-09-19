@@ -1,2 +1,5 @@
 {
+    "extra": {
+        "release-branch-prefix": "testing"
+    }
 }

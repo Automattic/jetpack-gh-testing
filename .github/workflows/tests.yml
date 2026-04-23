@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - run: |
+          sleep 60
           if [[ "$(< score.txt )" -le 10 ]]; then
             echo "ok"
           else
